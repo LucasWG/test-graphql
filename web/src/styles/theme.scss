@@ -1,0 +1,17 @@
+:root {
+	--background: #d8dee9;
+	--foreground: #eceff4;
+	--text-color: #222831;
+	--highlight: #e5e9f0;
+	--border-color: #b8bcc596;
+	--shadow: rgba(0, 0, 0, 0.14);
+}
+
+[data-theme='dark'] {
+	--background: #2e3440;
+	--foreground: #3b4252;
+	--text-color: #eeeeee;
+	--highlight: #434c5e;
+	--border-color: #4c566a;
+	--shadow: rgba(0, 0, 0, 0.34);
+}

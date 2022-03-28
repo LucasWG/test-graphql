@@ -1,0 +1,97 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+@media (max-width: 1000px) {
+	html {
+		font-size: 93.75%; /* 15px */
+	}
+}
+
+@media (max-width: 720px) {
+	html {
+		font-size: 87.5%; /* 14px */
+	}
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background: var(--background);
+}
+
+body,
+input,
+textarea,
+button {
+	font: 500 1rem Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	color: var(--text-color);
+}
+
+button {
+	border: 0;
+	padding: 0;
+	background: transparent;
+	cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 600;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	color: var(--text-color);
+}
+
+a {
+	color: var(--text-color);
+	text-decoration: none;
+	filter: invert(0.2);
+
+	transition: filter 300ms ease-in-out;
+
+	&:hover {
+		filter: invert(0);
+	}
+}
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+ul {
+	list-style: none;
+}
+
+img {
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.rotate {
+	animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
