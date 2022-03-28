@@ -1,25 +1,27 @@
-import crypto from 'crypto'
-import { Arg, Mutation, Query, Resolver } from 'type-graphql'
+import { Length } from 'class-validator'
+import { Arg, Ctx, Field, InputType, Mutation, Query, Resolver } from 'type-graphql'
 import { User } from '../models/User'
+import { Context } from '../services/prisma'
 
 // query: buscar dados
 // mutation: criar, alterar ou deletar
 
-@Resolver()
-export class UserResolver {
-	private data: User[] = []
+@InputType()
+class CreateUserInput {
+	@Field()
+	@Length(4, 10)
+	name: string
+}
 
+@Resolver(User)
+export class UserResolver {
 	@Query(() => [User])
-	async users() {
-		return this.data
+	async users(@Ctx() ctx: Context) {
+		return ctx.prisma.user.findMany()
 	}
 
 	@Mutation(() => User)
-	async createUser(@Arg('name') name: string) {
-		const user: User = { id: crypto.randomUUID(), name }
-
-		this.data.push(user)
-
-		return user
+	async createUser(@Arg('data') { name }: CreateUserInput, @Ctx() ctx: Context) {
+		return ctx.prisma.user.create({ data: { name: name } })
 	}
 }

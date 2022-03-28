@@ -4,8 +4,8 @@ import { GET_USERS } from '../../pages'
 import { client } from '../../services/apollo'
 
 const CREATE_USER = gql`
-	mutation ($name: String!) {
-		createUser(name: $name) {
+	mutation ($data: CreateUserInput!) {
+		createUser(data: $data) {
 			id
 			name
 		}
@@ -23,7 +23,9 @@ const NewUserForm: React.FC = () => {
 
 		await createUser({
 			variables: {
-				name
+				data: {
+					name
+				}
 			},
 			// refetchQueries: [GET_USERS],
 			update: (cache, { data: { createUser } }) => {

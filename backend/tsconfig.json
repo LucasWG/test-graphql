@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		"target": "ES2018",
-		"lib": ["ES2018", "ESNext.AsyncIterable"],
+		"lib": ["ES2018", "ESNext.AsyncIterable", "ESNext"],
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata": true,
 		"module": "commonjs",
@@ -11,6 +11,7 @@
 		"strict": true,
 		"skipLibCheck": true,
 		"removeComments": true,
-		"strictPropertyInitialization": false
+		"strictPropertyInitialization": false,
+		"sourceMap": true,
 	}
 }
